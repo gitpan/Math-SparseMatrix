@@ -1,0 +1,6 @@
+Revision history for Perl extension Math::SparseMatrix.
+
+0.01  Sun Jun 18 18:54:21 2006
+	- original version; created by h2xs 1.23 with options
+		-AXc -n Math::SparseMatrix
+

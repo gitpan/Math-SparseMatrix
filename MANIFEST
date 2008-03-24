@@ -1,7 +1,10 @@
-Changes
+CHANGES
+INSTALL.pod
+lib/Math/SparseMatrix.pm
 Makefile.PL
-MANIFEST
+MANIFEST			This list of files
+Math-SparseMatrix-0.02/Makefile.PL
+Math-SparseMatrix-0.02/README
+META.yml
 README
 t/Math-SparseMatrix.t
-lib/Math/SparseMatrix.pm
-META.yml                                 Module meta-data (added by MakeMaker)

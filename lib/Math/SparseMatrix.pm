@@ -1,6 +1,12 @@
 package Math::SparseMatrix;
 
-use 5.008005;
+=head1 NAME
+
+Math::SparseMatrix - Provides basic sparse matrix operations such as creation, reading from file, reading transpose from file and writing to file. 
+
+=cut
+
+use 5.006;
 use strict;
 use warnings;
 
@@ -8,6 +14,7 @@ require Exporter;
 require Math::SparseVector;
 
 use Math::SparseVector;
+
 
 our @ISA = qw(Exporter);
 
@@ -28,7 +35,7 @@ our @EXPORT = qw(
 	
 );
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 sub new {
     my $class = shift;
@@ -320,41 +327,62 @@ sub printDims {
 1;
 __END__
 
-=head1 NAME
+=head1 DESCRIPTION
 
-Math::SparseMatrix - A Perl module for basic sparse matrix operations such as
-creation, reading from file, reading transpose from file and writing to file.
+Math::SparseMatrix provides simple sparse matrix functionality such as 
+creation of sparse matrices, writing them out to a file, reading matrices from 
+files and reading transpose of a matrix stored in a file.
 
 =head1 SYNOPSIS
 
-  # include this module for use in your program
-  use Math::SparseMatrix;
+=over
+
+=item 1. To begin with, Math::SparseMatrix should be included in your Perl program as follows:
+
+    # include this module for use in your program
+    use Math::SparseMatrix;
   
-  # create a new sparse matrix with 10 rows and 15 columns
-  my $spmatrix = Math::SparseMatrix->new(10, 15);
+=item 2. To create an empty sparse matrix object with the required dimensions, use the following constructor:
 
-  # set the value at row 5, column 3 to 10
-  $spmatrix->set(5, 3, 10);
+    # create a new sparse matrix with 10 rows and 15 columns
+    my $spmatrix = Math::SparseMatrix->new(10, 15);
 
-  # get the value at row 6, column 5 if present, or zero
-  $val = $spmatrix->get(6, 5);
+=item 3. To update the values in the sparse matrix, use the "set" function as follows:
 
-  # write out the sparse matrix to the file "matrix.txt"
-  $spmatrix->writeToFile("matrix.txt");
+    # set the value at row 5, column 3 to 10
+    $spmatrix->set(5, 3, 10);
 
-  # create a matrix object by reading the file "matrix.txt"
-  my $spmatrix = Math::SparseMatrix->createFromFile("matrix.txt");
+=item 4. To retrieve a stored value, use the "get" function as follows:
+  
+    # get the value at row 6, column 5 if present, or zero
+    $val = $spmatrix->get(6, 5);
 
-  # create the transpose of the matrix stored in "matrix.txt"
-  my $spmatrix = Math::SparseMatrix->createTransposeFromFile("matrix.txt");
-  # write out the created transpose to another file "transpose.txt"
-  $spmatrix->writeToFile("transpose.txt");
+=item 5. A sparse matrix can be written out to a file in the supported format (explained below) as follows:
+   
+    # write out the sparse matrix to the file "matrix.txt"
+    $spmatrix->writeToFile("matrix.txt");
 
-=head1 DESCRIPTION
+=item 6. A new sparse matrix object can be created from a file in the supported  format as follows:
+   
+    # create a matrix object by reading the file "matrix.txt"
+    my $spmatrix = Math::SparseMatrix->createFromFile("matrix.txt");
 
-Math::SparseMatrix module provides simple sparse matrix functionality such as
-creation of sparse matrices, writing them out to a file, reading matrices from
-files and reading transpose of a matrix stored in a file.
+=item 7. A new sparse matrix that is the transpose of the matrix stored in the given input file can be created as follows:
+   
+    # create the transpose of the matrix stored in "matrix.txt"
+    my $spmatrix = Math::SparseMatrix->createTransposeFromFile("matrix.txt");
+  
+=item 8. Finally, to generate the transpose of a matrix stored in a file, read the transpose as in #7 above and write out the read transpose to a new file as in #5 above.
+ 
+    # create the transpose of the matrix stored in "matrix.txt"
+    my $spmatrix = Math::SparseMatrix->createTransposeFromFile("matrix.txt");
+    
+    # write out the created transpose to another file "transpose.txt"
+    $spmatrix->writeToFile("transpose.txt");
+
+=back
+
+=head1 SPARSE DATA FORMAT
 
 The sparse matrix file format that Math::SparseMatrix expects is described
 below with an example.
@@ -403,21 +431,17 @@ Notice the empty line in between for the third row.
 
 Math::SparseVector
 
-=head1 AUTHOR
-
-Ted Pedersen, <tpederse@d.umn.edu>
-
-Mahesh Joshi, <joshi031@d.umn.edu>
-
-=head1 COPYRIGHT AND LICENSE
-
-Copyright (c) 2006,
+=head1 AUTHORS
 
 Ted Pedersen, University of Minnesota, Duluth.
-tpederse@d.umn.edu
+tpederse at d.umn.edu
 
-Mahesh Joshi, University of Minnesota, Duluth.
-joshi031@d.umn.edu
+Mahesh Joshi, Carnegie-Mellon University
+maheshj @ cmu.edu
+
+=head1 COPYRIGHT
+
+Copyright (c) 2006-2008, Ted Pedersen and Mahesh Joshi
 
 This program is free software; you can redistribute it and/or modify it under
 the terms of the GNU General Public License as published by the Free Software
@@ -431,8 +455,9 @@ FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
 You should have received a copy of the GNU General Public License along with
 this program; if not, write to
 
-The Free Software Foundation, Inc.,
-59 Temple Place - Suite 330,
-Boston, MA  02111-1307, USA.
+ The Free Software Foundation, Inc.,
+ 59 Temple Place - Suite 330,
+ Boston, MA  02111-1307, USA.
 
 =cut
+

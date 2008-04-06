@@ -1,11 +1,14 @@
-# http://module-build.sourceforge.net/META-spec.html
-#XXXXXXX This is a prototype!!!  It will change in the future!!! XXXXX#
-name:         Math-SparseMatrix
-version:      0.02
-version_from: lib/Math/SparseMatrix.pm
-installdirs:  site
-requires:
+--- #YAML:1.0
+name:                Math-SparseMatrix
+version:             0.03
+abstract:            Provides basic sparse matrix operations such as creation, reading from file, reading transpose from file and writing to file. 
+license:             gpl
+author:              
+    - Ted Pedersen <tpederse at d.umn.edu>; Mahesh Joshi <maheshj@cmu.edu>
+generated_by:        ExtUtils::MakeMaker version 6.44
+distribution_type:   module
+requires:     
     Math::SparseVector:            0.01
-
-distribution_type: module
-generated_by: ExtUtils::MakeMaker version 6.17
+meta-spec:
+    url:     http://module-build.sourceforge.net/META-spec-v1.3.html
+    version: 1.3
